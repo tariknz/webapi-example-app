@@ -10,6 +10,14 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExampleApp.Orders.Business\ExampleApp.Orders.Business.csproj" />
+    <ProjectReference Include="..\ExampleApp.Orders.Models\ExampleApp.Orders.Models.csproj" />
+    <ProjectReference Include="..\ExampleApp.Orders.Storage\ExampleApp.Orders.Storage.csproj" />
   </ItemGroup>
 
 </Project>
