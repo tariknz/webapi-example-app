@@ -19,6 +19,11 @@ namespace ExampleApp.Orders.Service.Controllers
             _orders = orders;
         }
 
+        /// <summary>
+        /// Post request for creating a new order
+        /// </summary>
+        /// <param name="newOrder"></param>
+        /// <returns></returns>
         [HttpPost]
         [SwaggerResponse((int)HttpStatusCode.OK, type: typeof(Order))]
         [SwaggerResponse((int)HttpStatusCode.BadRequest, type: typeof(string))]

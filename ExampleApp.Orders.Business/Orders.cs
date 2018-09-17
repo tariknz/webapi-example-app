@@ -26,10 +26,14 @@ namespace ExampleApp.Orders.Business
         /// <exception cref="OrderCreateException">When failed to create in database</exception>
         public Order CreateOrder(OrderCreate newOrder)
         {
-            // Validation
+            // Some basic validation
             if (newOrder.Customer == null) throw new CustomerCanNotBeNullException();
             if (newOrder.OrderItems == null || !newOrder.OrderItems.Any()) throw new MustContainOrderItemException();
 
+            // There is probably a lot more validations to consider i.e. does the item code exist,
+            // each order item should have quantity > 0 and customer details are not null (this only checks for the object)
+            // I would use a validation framework like fluent validator or the built-in MVC validators if they are simple static ones
+            
             // Create business object from a new order with new ID and Order create date
             var order = new Order
             {
@@ -46,6 +50,7 @@ namespace ExampleApp.Orders.Business
             }
             catch (Exception)
             {
+                // Just basic exception for now
                 throw new OrderCreateException();
             }
 
